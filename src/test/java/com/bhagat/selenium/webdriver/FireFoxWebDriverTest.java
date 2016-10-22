@@ -24,8 +24,10 @@ public class FireFoxWebDriverTest {
 
     @After
     public void stopFireFoxWebDriver() {
-        driver.close();
-        driver.quit();
+        if (driver != null) {
+            driver.close();
+            driver.quit();
+        }
     }
 
     @Test

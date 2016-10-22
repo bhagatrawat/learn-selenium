@@ -23,8 +23,10 @@ public class ChromeWebDriverTest {
 
     @After
     public void stopChromeWebDriver() {
-        driver.close();
-        driver.quit();
+        if (driver != null) {
+            driver.close();
+            driver.quit();
+        }
     }
 
     @Test
