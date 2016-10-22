@@ -14,7 +14,7 @@ public class ChromeWebDriverTest {
     public void startChromeWebDriver() {
         System.setProperty("webdriver.chrome.driver", "webdrivers/chromedriver/chromedriver.exe");
         /**
-         * Uncomment this line if your system is not able to locate firefox in your system.*/
+         * Uncomment this line if your system is not able to locate chrome in your system.*/
         /**
          System.setProperty("webdriver.chrome.bin", "<<Chrome Exe Location>>\\chrome.exe");
          */
