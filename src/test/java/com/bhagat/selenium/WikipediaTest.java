@@ -13,7 +13,7 @@ public class WikipediaTest {
 
         WebDriver driver = null;
         try {
-            System.setProperty("webdriver.gecko.driver", "geckodriver/geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", "webdrivers/firefoxdriver/geckodriver.exe");
             /**
              * Uncomment this line if your system is not able to locate firefox in your system.*/
             /**
@@ -26,9 +26,10 @@ public class WikipediaTest {
             final WebElement searchBox = driver.findElement(By.id("searchInput"));
             searchBox.sendKeys("Bhagat Singh");
             searchBox.submit();
-            Thread.sleep(5000);
+            Thread.sleep(2000);
         } finally {
             if (driver != null) {
+                driver.close();
                 driver.quit();
             }
         }
