@@ -1,18 +1,15 @@
 package com.bhagat.selenium.webdriver;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class FireFoxWebDriverTest {
 
-    private WebDriver driver;
+    private static WebDriver driver;
 
-    @Before
-    public void startFireFoxWebDriver() {
+    @BeforeClass
+    public static void beforeClass() {
         System.setProperty("webdriver.gecko.driver", "webdrivers/firefoxdriver/geckodriver.exe");
         /**
          * Uncomment this line if your system is not able to locate firefox in your system.*/
@@ -22,18 +19,18 @@ public class FireFoxWebDriverTest {
         driver = new FirefoxDriver();
     }
 
-    @After
-    public void stopFireFoxWebDriver() {
-        if (driver != null) {
-            driver.close();
-            driver.quit();
-        }
-    }
-
     @Test
     public void fireFoxWebDriverTest() {
         driver.navigate().to("http://seleniumhq.org");
         Assert.assertTrue("Title is not matching.",
                 driver.getTitle().startsWith("Selenium - Web Browser Automation"));
     }
+
+    @AfterClass
+    public static void afterClasss() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
 }
